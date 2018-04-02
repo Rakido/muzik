@@ -5,7 +5,7 @@ class CreateInstruments < ActiveRecord::Migration[5.1]
       t.string :city
       t.string :category
       t.string :name
-      t.string :description
+      t.text :description
       t.string :photo
       t.integer :price
       t.boolean :available, default: true

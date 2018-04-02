@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20180402162117) do
     t.string "city"
     t.string "category"
     t.string "name"
-    t.string "description"
+    t.text "description"
     t.string "photo"
     t.integer "price"
     t.boolean "available", default: true
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20180402162117) do
   create_table "reservations", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "instrument_id"
-    t.string "message"
+    t.text "message"
     t.date "start_date"
     t.date "end_date"
     t.integer "total_price"

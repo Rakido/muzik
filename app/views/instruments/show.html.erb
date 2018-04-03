@@ -1,0 +1,55 @@
+
+
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-xs-12 col-md-7">
+      <div class="col-md-1 user-avatar">
+      <p> =) </p>
+      </div>
+      <div class="col-md-4 user-info">
+        <h4><%= @instrument.user.first_name %> <%= @instrument.user.last_name %></h4>
+        <p>Inscrit le 12.08.2018</p>
+      </div>
+      <div class="col-xs-10">
+        <h2><%= @instrument.name %></h2>
+      </div>
+      <div class="col-xs-2 text-right">
+        <h2><%= @instrument.price %></h2>
+      </div>
+
+      <div class="col-xs-6 col-md-3">
+        <p><%= @instrument.category %></p>
+      </div>
+
+      <div class="col-xs-6 col-md-5">
+        <p><%= @instrument.city %></p>
+      </div>
+
+      <div class="col-xs-6 col-md-2">
+        <p>12 Juin</p>
+      </div>
+
+      <div class="col-xs-6 col-md-2">
+        <p>15 Juin</p>
+      </div>
+
+      <div class="col-md-12">
+        <p> <%= @instrument.description %></p>
+      </div>
+
+    </div>
+
+    <div class="col-xs-12 col-md-4 col-md-offset-1">
+      <%= cl_image_tag @instrument.photo, height: 300, width: 400, crop: :fill %>
+      <button class="btn btn-primary">Réservez</button>
+    </div>
+
+
+
+
+  </div>
+</div>
+
+

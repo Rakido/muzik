@@ -1,5 +1,15 @@
 class InstrumentsController < ApplicationController
 
+
+  skip_before_action :authenticate_user!, only: [:home, :show]
+
+
+  def show
+    @instrument = Instrument.find(params[:id])
+  end
+
+
+
  def new
    @instrument = Instrument.new
  end
@@ -30,4 +40,5 @@ class InstrumentsController < ApplicationController
   def index
     @instruments = Instrument.all
   end
+
 end

@@ -1,0 +1,40 @@
+.sign-container {
+  width: 350px;
+  background:$white;
+  box-shadow: 0 2px 24px 0 rgba(0,0,0,0.70);
+  border-radius: 4px;
+  padding:24px;
+}
+
+.sign-logo {
+  margin-bottom:20px;
+}
+
+.control-label {
+  display:none;
+}
+
+.sign-subtitle {
+  padding-bottom: 20px;
+}
+
+.button-cta {
+  background-image: linear-gradient(-162deg, #7C88FA 0%, #4B55E7 100%);
+  box-shadow: inset 0 -1px 3px 0 rgba(0,0,0,0.10);
+  border-radius: $border-radius-base;
+  text-transform:uppercase;
+  font-family: MaisonNeue-Medium;
+  font-size: 13px;
+  color: #FFFFFF;
+  letter-spacing: 2px;
+  text-shadow: 0 1px 2px #0410AA;
+}
+
+.button-cta-sign {
+  width:100%;
+  height:4rem;
+}
+
+.help-block {
+  padding-top: 5px;
+}

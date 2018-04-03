@@ -9,4 +9,7 @@ class Instrument < ApplicationRecord
   validates :name, presence: true, length: { maximum: 50 }
   validates :description, presence: true, length: { maximum: 600 }
   validates :price, presence: true
+
+  # Cloudinary, photo upload
+  mount_uploader :photo, PhotoUploader
 end

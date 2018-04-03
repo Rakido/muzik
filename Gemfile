@@ -11,8 +11,9 @@ gem 'redis'
 
 ## Custom gems
 gem 'devise'
+gem 'cloudinary'
 
-## Gems custom 
+## Gems custom
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3'
 gem 'font-awesome-sass', '~> 4.7'

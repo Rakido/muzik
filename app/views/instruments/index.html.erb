@@ -1,0 +1,18 @@
+<div class="container">
+  <h1>Voici les résultats de votre recherche</h1>
+    <div class="row">
+      <% @instruments.each do |instrument| %>
+        <div class="col-sm-3">
+
+
+
+        <p><%= link_to instrument.name, instrument_path(instrument) %></p>
+        <p><%= instrument.user.first_name %> <%= instrument.user.first_name %> </p>
+        <p><%= instrument.description %></p>
+        <p><%= link_to instrument.price, instrument_path(instrument) %></p>
+
+
+        </div>
+      <% end %>
+    </div>
+</div>

@@ -11,7 +11,9 @@ gem 'redis'
 
 ## Custom gems
 gem 'devise'
+gem 'faker'
 gem 'cloudinary'
+gem 'carrierwave', '~> 1.2'
 
 ## Gems custom
 gem 'autoprefixer-rails'

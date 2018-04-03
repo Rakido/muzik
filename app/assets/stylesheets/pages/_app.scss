@@ -1,0 +1,18 @@
+body {
+  -webkit-font-smoothing : antialiased;
+}
+
+.marged-top {
+  margin-top: 5vh;
+}
+
+.text-cta {
+  font-family: $body-font;
+  font-size: 13px;
+  color: $red;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border: 1px solid $red;
+  border-radius: $border-radius-base;
+  padding:1rem;
+}

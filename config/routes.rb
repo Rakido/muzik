@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   root to: 'pages#home'
-
   devise_for :users
 
   resources :instruments, only: [:index, :show, :new, :create] do
@@ -17,4 +16,6 @@ Rails.application.routes.draw do
       patch :refuse
     end
   end
+
+  get 'styleguide', to: 'pages#styleguide'
 end

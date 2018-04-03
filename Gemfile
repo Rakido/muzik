@@ -11,6 +11,7 @@ gem 'redis'
 
 ## Custom gems
 gem 'devise'
+gem 'cloudinary'
 
 ## Gems custom 
 gem 'autoprefixer-rails'

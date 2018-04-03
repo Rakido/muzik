@@ -11,9 +11,12 @@ gem 'redis'
 
 ## Custom gems
 gem 'devise'
+gem 'faker'
 gem 'cloudinary'
+gem 'carrierwave', '~> 1.2'
 
-## Gems custom 
+
+## Gems custom
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3'
 gem 'font-awesome-sass', '~> 4.7'

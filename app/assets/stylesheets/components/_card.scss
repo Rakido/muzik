@@ -12,8 +12,12 @@
 .card-image {
   height: 175px;
   width: 262px;
-  background-size: cover !important;
-  background-position: center;
+  //background-position center
+}
+
+.instrument-image {
+ height: 175px;
+  width: 262px;
 }
 
 .card-user {
@@ -22,6 +26,7 @@
   top: 10px;
   width: 40px;
   border-radius: 50%;
+  box-shadow: 0 2px 24px 0 rgba(206,221,251,0.70);
 }
 
 .card-user-instrument {

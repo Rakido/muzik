@@ -1,4 +1,49 @@
-.test {
-  background: red;
-  height: 100px;
+.input {
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+  height:4rem;
+  background: $white;
+  box-shadow: inset 0 -1px 3px 0 rgba(0,0,0,0.10);
+  border-radius: $border-radius-base;
+}
+
+.text-input {
+  margin-top: 10px;
+  opacity: .87;
+  color:$gray;
+  font-family: MaisonNeue-Bold;
+  font-size: 1.3rem;
+  letter-spacing: 0.5px;
+}
+
+.show-image {
+  width:100%;
+  box-shadow: 0 2px 24px 0 rgba(206,221,251,0.50);
+  border-radius: 3px;
+}
+
+
+.show-cta {
+  margin-top: 24px;
+  height:40px;
+  width:100%;
+  background-image: linear-gradient(-164deg, #7C88FA 0%, #4B55E7 100%);
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cta-input {
+  text-transform:uppercase;
+  font-family: MaisonNeue-Medium;
+  font-size: 13px;
+  color: #FFFFFF;
+  letter-spacing: 2px;
+  text-shadow: 0 1px 2px #0410AA;
+  padding-top:5px;
+  text-align:right;
+}
+
+.description {
+  margin-top:24px;
 }

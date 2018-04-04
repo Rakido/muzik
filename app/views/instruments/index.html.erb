@@ -1,51 +1,46 @@
-        <div class="container">
-          
-
-          <div class="row">
-            <div class="col-xs-12 results">
-              <div class="underline"></div>
-              <h1>Voici les résultats de votre recherche</h1>
-              <div class="underline"></div>
-            </div>
-            <% @instruments.each do |instrument| %>
-              <div class="col-xs-12 col-sm-3 text-center">
-                <div class="card">
-                  <%= cl_image_tag instrument.photo, crop: :fill, class: "card-image" %>
-                  <div class="card-description">
-
-                    <!-- User name -->
-                    <h6 class="card-user-name"><%= instrument.user.first_name %> <%= instrument.user.last_name %></h6>
-                    <!-- Name of annonce -->
-                    <h5 class="card-user-instrument"><%= link_to instrument.name, instrument_path(instrument) %></h5>
-                    <!-- Résumé de l'annonce peut-être mettre une limite de caractère -->
-                    <p class="card-resume"><%= instrument.description %></p>
-
-                  </div>
-
-                  <div class="card-footer">
-                    <div class="row">
-                      <div class="col-sm-2 card-price">
-                          <!-- Price de l'annonce -->
-                          <%= link_to instrument.price, instrument_path(instrument)%>€
-                      </div>
-
-                    <div class="col-sm-10 card-see-more">
-                          En voir plus <i class="fa fa-arrow-right"></i>
-                  </div>
+<div class="container">
 
 
+  <div class="row">
+    <div class="col-xs-12 results">
+      <div class="underline"></div>
+      <h1>Voici les résultats de votre recherche</h1>
+      <div class="underline"></div>
+    </div>
+    <% @instruments.each do |instrument| %>
+      <div class="col-xs-12 col-sm-3 text-center">
+        <div class="card">
+          <%= cl_image_tag instrument.photo, crop: :fill, class: "card-image" %>
+          <div class="card-description">
 
-                        </div>
-                      </div>
+            <!-- User name -->
+            <h6 class="card-user-name"><%= instrument.user.first_name %> <%= instrument.user.last_name %></h6>
+            <!-- Name of annonce -->
+            <h5 class="card-user-instrument"><%= link_to instrument.name, instrument_path(instrument) %></h5>
+            <!-- Résumé de l'annonce peut-être mettre une limite de caractère -->
+            <p class="card-resume"><%= instrument.description %></p>
 
-                <!-- Image de l'utilisateur -->
-                     <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
-                    <a class="card-link" href="#" ></a>
-                  </div>
-                </div>
-              <% end %>
-            </div>
           </div>
+
+          <div class="card-footer">
+            <div class="row">
+              <div class="col-sm-2 card-price">
+                  <!-- Price de l'annonce -->
+                  <%= link_to instrument.price, instrument_path(instrument)%>€/jour
+
+              </div>
+                </div>
+              </div>
+
+        <!-- Image de l'utilisateur -->
+             <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+             <%= link_to '', instrument_path(instrument), class: "card-link"  %>
+            <!-- <a class="card-link" href="#" ></a> -->
+          </div>
+        </div>
+      <% end %>
+    </div>
+</div>
 
 
 

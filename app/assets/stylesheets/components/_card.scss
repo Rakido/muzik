@@ -12,8 +12,11 @@
 .card-image {
   height: 175px;
   width: 262px;
-  background-size: cover !important;
-  background-position: center;
+  //background-position center
+}
+
+.instrument-image {
+background-repeat:no-repeat;
 }
 
 .card-user {

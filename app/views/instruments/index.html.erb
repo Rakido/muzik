@@ -1,5 +1,4 @@
 <div class="container">
-  
 
   <div class="row">
     <div class="col-xs-12 results">
@@ -26,26 +25,21 @@
             <div class="row">
               <div class="col-sm-2 card-price">
                   <!-- Price de l'annonce -->
-                  <%= link_to instrument.price, instrument_path(instrument)%>€
+                  <%= link_to instrument.price, instrument_path(instrument)%>€/jour
+
               </div>
-
-            <div class="col-sm-10 card-see-more">
-                  En voir plus <i class="fa fa-arrow-right"></i>
-          </div>
-
-
-
                 </div>
               </div>
 
         <!-- Image de l'utilisateur -->
              <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
-            <a class="card-link" href="#" ></a>
+             <%= link_to '', instrument_path(instrument), class: "card-link"  %>
+            <!-- <a class="card-link" href="#" ></a> -->
           </div>
         </div>
       <% end %>
     </div>
-  </div>
+</div>
 
 
 

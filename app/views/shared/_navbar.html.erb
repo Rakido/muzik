@@ -6,7 +6,7 @@
 
   <!-- Central Navigation -->
   <form class="form-inline" action="<%= instruments_path %>">
-    <%= select("post", "category", Instrument::CATEGORIES, {include_blank: 'Choisissez un instrument'}) %>
+    <%= select("instrument", "category", Instrument::CATEGORIES, {include_blank: 'Choisissez un instrument'}) %>
     <div class="form-group mx-sm-3 mb-2">
       <input type="text" class="form-control form-input text-input" name="city" placeholder="Tapez une ville">
     </div>

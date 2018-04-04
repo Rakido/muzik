@@ -20,7 +20,7 @@ class InstrumentsController < ApplicationController
 
     redirect_to profile_path
   end
-    
+
   private
 
   def instrument_params
@@ -31,6 +31,6 @@ class InstrumentsController < ApplicationController
       :price,
       :description,
       :photo
-    )   
+    )
   end
 end

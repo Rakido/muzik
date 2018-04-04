@@ -9,9 +9,9 @@ class InstrumentsController < ApplicationController
     @instruments = @instruments.where(category: @category) unless @category == ""
     @instruments = @instruments.where(city: @city) unless @city == ""
    
-    @instruments = Instrument.where.not(latitude: nil, longitude: nil)
+    @instrument_map = Instrument.where.not(latitude: nil, longitude: nil)
 
-        @markers = @instruments.map do |instrument|
+        @markers = @instrument_map.map do |instrument|
           {
             lat: instrument.latitude,
             lng: instrument.longitude#,

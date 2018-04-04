@@ -2,7 +2,13 @@ class InstrumentsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
+    
+    @category = params[:post][:category]
+    @city = params[:city]
     @instruments = Instrument.all
+    @instruments = @instruments.where(category: @category) unless @category == ""
+    @instruments = @instruments.where(city: @city) unless @city == ""
+   
     @instruments = Instrument.where.not(latitude: nil, longitude: nil)
 
         @markers = @instruments.map do |instrument|

@@ -1,24 +1,68 @@
-
 <div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-md-6 col-md-offset-3">
-      <h1>Voici mon profil!</h1>
+
+  <div class="row results">
+    <div class="col-xs-12 col-md-12 ">
+      <div class="col-md-1">
+          <%= cl_image_tag current_user.avatar, height: 48, width: 48, crop: :fill, class: "avatar-pics" %>
+      </div>
+      <div class="col-md-9 user-info" style="margin-left: 20px">
+        <h4 class="primary-text"><%=current_user.first_name %> <%= current_user.last_name %></h4>
+        <p>Inscrit le 12.08.2018</p>
+      </div>
+      <div class="col-md-1 user-info" >
+        <p class="text-right"><%=current_user.email%></p>
+        <p class="text-right"><%=current_user.phone_number%></p>
+      </div>
+      <div class="underline" style="margin-top: 80px;"></div>
+      
+      <div class="instruments" style="margin-top: 24px;"></div>
       <% @instruments.each do |instrument| %>
+      
+      <div class="col-xs-12 col-sm-3 text-center">
+        <div class="card">
+          <div class="card-image" style="background-image: url() ">
+            <% if instrument.photo.url.nil?%>
+              <%= image_tag("default-instrument.png", class: "instrument-image")  %>
+            <% else %>
+              <%= cl_image_tag instrument.photo, crop: :fill, class: "instrument-image" %>
+            <% end %>
+          </div>
 
-      <h2> <%= current_user.first_name %> <%= current_user.last_name %> </h2>
-      <%= cl_image_tag @current_user.avatar, height: 50, width: 50, crop: :fill %>
-      <p> <%= cl_image_tag instrument.photo, height: 400, width: 300, crop: :fill %> </p>
-      <p> <%= instrument.name %> </p>
+          <div class="card-description">
 
+            <!-- User name -->
+            <h6 class="card-user-name"><%= current_user.first_name %> <%= current_user.last_name %></h6>
+            <!-- Name of annonce -->
+            <h5 class="card-user-instrument"><%= instrument.name %></h5>
+            <!-- Résumé de l'annonce peut-être mettre une limite de caractère -->
+            <p class="card-resume"><%= instrument.description %></p>
 
-      <% end %>
+          </div>
+
+          <div class="card-footer">
+            <div class="row">
+              <div class="col-sm-2 card-price">
+                  <!-- Price de l'annonce -->
+                  <%= link_to instrument.price, instrument_path(instrument)%>€/jour
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div> 
+  <div class="row results">
+    <div class="col-xs-6">
+      <h2>Mon pognon gagné</h2>
     </div>
 
-    <div>
-      <h2>Mes instruments !</h2>
+    <div class="col-xs-6">
+      <h2>Mon pognon perdu</h2>
     </div>
-
-
-
   </div>
 </div>
+
+

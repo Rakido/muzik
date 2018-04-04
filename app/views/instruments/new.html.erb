@@ -4,15 +4,94 @@
       <h1>Ajouter un instrument</h1>
 
       <%= simple_form_for @instrument do |f| %>
-        <%= f.input :name %>
-        <%= f.input :category, collection: Instrument::CATEGORIES, as: :select%>
-        <%= f.input :city %>
-        <%= f.input :price %>
-        <%= f.input :description %>
-        <%= f.input :photo%>
+        <%= f.input :name,  placeholder: "Titre de l'annonce" %>
+        <%= f.input :category, placeholder: 'Catégorie', collection: Instrument::CATEGORIES, as: :select%>
+        <%= f.input :city, placeholder: 'Ville'%>
+        <%= f.input :price,  placeholder: 'Tarif/jour' %>
+        <%= f.input :description, placeholder: 'Description de votre annonce' %>
+        <%= f.input :photo, class: "preview" %>
+
+        <div id="preview">
+         <style>
+          #preview{
+           width: 200px;
+           border: 1px solid black;
+           height: 150px;
+          }
+          #preview img{
+           width: 200px;
+          }
+         </style>
+         <img src="" alt>
+        <script src="http://code.jquery.com/jquery-3.1.0.min.js"
+          integrity="shaa256-cCueBR6CsyA4/9szpPfrX3s49M9vUU58gtiJj06wt/s="
+          crossorigin="anonymous">
+         </script>
+         <script type="text/javascript">
+          function readURL(input){
+           if(input.files && input.files[0]){
+            var reader = new FileReader();
+            reader.onload = function(e){
+             $('#preview img').attr('src', e.target.result);
+            };
+            reader.readAsDataURL(input.files[0]);
+           }
+          }
+          $(document).on('change','input[type="file"]',function(){
+           readURL(this);
+          });
+         </script>
+        </div>
+
         <%= f.submit 'Ajouter', class: 'btn btn-primary' %>
       <% end %>
     </div>
   </div>
 </div>
 
+
+<!--
+
+<!DOCTYPE html>
+<html>
+ <head>
+  <style>
+   #preview{
+    width: 200px;
+    border: 1px solid black;
+    height: 150px;
+   }
+   #preview img{
+    width: 200px;
+   }
+  </style>
+  <script src="http://code.jquery.com/jquery-3.1.0.min.js"
+   integrity="shaa256-cCueBR6CsyA4/9szpPfrX3s49M9vUU58gtiJj06wt/s="
+   crossorigin="anonymous">
+  </script>
+  <script type="text/javascript">
+   function readURL(input){
+    if(input.files && input.files[0]){
+     var reader = new FileReader();
+     reader.onload = function(e){
+      $('#preview img').attr('src', e.target.result);
+     };
+     reader.readAsDataURL(input.files[0]);
+    }
+   }
+   $(document).on('change','input[type="file"]',function(){
+    readURL(this);
+   });
+
+
+  </script>
+ </head>
+ <body>
+  <form method="post" enctype="multipart/form-data">
+   <input type="file" name="file"/>
+   <br/>
+   <div id="preview"><img src="" alt></div>
+  </form>
+ </body>
+</html>﻿
+ -->

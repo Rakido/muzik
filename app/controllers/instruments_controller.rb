@@ -24,8 +24,11 @@ class InstrumentsController < ApplicationController
      :description,
      :photo,
      )
-   
+   # rajout d'un end suite à un message d'erreur
+ end
+
   skip_before_action :authenticate_user!, only: [:index]
+
 
   def index
     @instruments = Instrument.all

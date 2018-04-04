@@ -9,6 +9,9 @@ gem 'puma'
 gem 'rails', '5.1.5'
 gem 'redis'
 
+##Geocode gem
+gem "geocoder"
+
 ## Custom gems
 gem 'devise'
 gem 'faker'

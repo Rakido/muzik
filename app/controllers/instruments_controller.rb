@@ -3,6 +3,15 @@ class InstrumentsController < ApplicationController
 
   def index
     @instruments = Instrument.all
+    @instruments = Instrument.where.not(latitude: nil, longitude: nil)
+
+        @markers = @instruments.map do |instrument|
+          {
+            lat: instrument.latitude,
+            lng: instrument.longitude#,
+            # infoWindow: { content: render_to_string(partial: "/instruments/map_box", locals: { instrument: instrument }) }
+          }
+        end
   end
 
   def show
@@ -20,7 +29,7 @@ class InstrumentsController < ApplicationController
 
     redirect_to profile_path
   end
-    
+
   private
 
   def instrument_params
@@ -31,6 +40,6 @@ class InstrumentsController < ApplicationController
       :price,
       :description,
       :photo
-    )   
+    )
   end
 end

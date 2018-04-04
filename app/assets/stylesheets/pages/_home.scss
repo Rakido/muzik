@@ -7,3 +7,17 @@
 .color-slide {
   background: red;
 }
+
+#post_category {
+  height:4rem;
+  background: $white;
+  box-shadow: inset 0 -1px 3px 0 rgba(0,0,0,0.10);
+  border-radius: $border-radius-base;
+  margin-left:6px;
+  margin-right:6px;
+  opacity: .87;
+  color:$gray;
+  font-family: MaisonNeue-Bold;
+  font-size: 1.3rem;
+  letter-spacing: 0.5px;
+}

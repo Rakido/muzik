@@ -1,0 +1,26 @@
+.instrument_photo {
+  text-transform:uppercase;
+  font-family: $body-font;
+  font-size: 13px;
+  color: $red;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-radius: $border-radius-base;
+  padding:1rem;
+  position:absolute;
+  top:50%;
+  margin: 0 auto;
+}
+
+ #preview{
+  height:420px !important;
+  width: 100%;
+
+  box-shadow: 0 2px 24px 0 rgba(206,221,251,0.50);
+  border-radius: $border-radius-base
+}
+
+#preview img{
+  height:420px;
+  width: 100%;
+}

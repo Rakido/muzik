@@ -3,14 +3,26 @@
   <div
     id="map"
     style="width: 100%;
-    height: 600px;"
+    height: 600px;
+    margin-top: 10vh;
+    margin-bottom: -10vh;"
     data-markers="<%= @markers.to_json %>"
   ></div>
 
   <div class="row">
     <div class="col-xs-12 results">
       <div class="underline"></div>
-      <h1>Voici les résultats de <%= @category %> recherche à <%= @city %></h1>
+
+      <% if @category == "" && @city == "" %>
+      <h1>Tous nos instruments</h1>
+      <% elsif @category == "" %>
+      <h1>Voici les résultats de recherche à <%= @city %></h1>
+      <% elsif @city == "" %>
+      <h1>Voici les <%= @category %>s, choisissez une ville </h1>
+      <% else %>
+      <h1>Voici les <%= @category %>s à <%= @city %></h1>
+      <% end %>
+
       <div class="underline"></div>
     </div>
     <% @instruments.each do |instrument| %>

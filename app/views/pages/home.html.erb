@@ -1,8 +1,8 @@
 <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://www.helpmusicians.org.uk/assets/images/hmd_banner_option_1.jpg');">
   <div class="banner-content">
     <h1>La müzik à portée de main</h1>
-    <h3>Louez ou proposez des instruments dans votre ville</h3>
-    <form class="form-inline" action="<%=instruments_path%>">
+    <h3 style="margin-top: 3vh;">Louez ou proposez des instruments dans votre ville</h3>
+    <form class="form-inline" style="margin-top: 3vh;" action="<%=instruments_path%>">
     <div class="form-group mb-2">
     
     <%= select("post", "category", Instrument::CATEGORIES, {include_blank: 'Choisissez un instrument'}) %>
@@ -25,7 +25,7 @@
   </div>
 </div>
 <div class="container">
-  <div class="row text-center section-home marged-top">
+  <div class="row text-center section-home marged-top" style="margin-top: 10vh;">
     <div class="col-md-4">
       <img src="https://cdn.lyft.com/brochure/drive-for-lyft-tip.f57a8a46.svg" width="100" alt="">
       <h2>Trouvez</h2>
@@ -48,4 +48,4 @@
     </div>
   </div>
 </div>
-<div class="section-home color-slide"></div>
+<!-- <div class="section-home color-slide"></div> -->

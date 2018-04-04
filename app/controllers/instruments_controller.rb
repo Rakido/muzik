@@ -2,22 +2,24 @@ class InstrumentsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    
-    @category = params[:post][:category]
-    @city = params[:city]
+
+    @category = params[:instrument][:category]
+    @city     = params[:city]
+
     @instruments = Instrument.all
+
     @instruments = @instruments.where(category: @category) unless @category == ""
     @instruments = @instruments.where(city: @city) unless @city == ""
-   
-    @instrument_map = Instrument.where.not(latitude: nil, longitude: nil)
 
-        @markers = @instrument_map.map do |instrument|
-          {
-            lat: instrument.latitude,
-            lng: instrument.longitude#,
-            # infoWindow: { content: render_to_string(partial: "/instruments/map_box", locals: { instrument: instrument }) }
-          }
-        end
+    @instruments = @instruments.where.not(latitude: nil, longitude: nil)
+
+    @markers = @instruments.map do |instrument|
+      {
+        lat: instrument.latitude,
+        lng: instrument.longitude#,
+        # infoWindow: { content: render_to_string(partial: "/instruments/map_box", locals: { instrument: instrument }) }
+      }
+    end
   end
 
   def show

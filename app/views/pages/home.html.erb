@@ -4,12 +4,12 @@
     <h3>Louez ou proposez des instruments dans votre ville</h3>
     <form class="form-inline" action="<%=instruments_path%>">
     <div class="form-group mb-2">
-    
-    <%= select("post", "category", Instrument::CATEGORIES, {include_blank: 'Choisissez un instrument'}) %>
-        
+
+    <%= select("instrument", "category", Instrument::CATEGORIES, {include_blank: 'Choisissez un instrument'}) %>
+
     </div>
     <div class="form-group mx-sm-3 mb-2">
-      <input type="text" class="form-control form-input text-input" name="city" placeholder="Tapez une ville"> 
+      <input type="text" class="form-control form-input text-input" name="city" placeholder="Tapez une ville">
     </div>
 
     <div class="form-group mx-sm-3 mb-2">

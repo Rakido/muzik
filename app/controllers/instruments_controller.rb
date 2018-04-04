@@ -8,8 +8,16 @@ class InstrumentsController < ApplicationController
     @instruments = Instrument.all
     @instruments = @instruments.where(category: @category) unless @category == ""
     @instruments = @instruments.where(city: @city) unless @city == ""
-    
+   
+    @instruments = Instrument.where.not(latitude: nil, longitude: nil)
 
+        @markers = @instruments.map do |instrument|
+          {
+            lat: instrument.latitude,
+            lng: instrument.longitude#,
+            # infoWindow: { content: render_to_string(partial: "/instruments/map_box", locals: { instrument: instrument }) }
+          }
+        end
   end
 
   def show
@@ -27,7 +35,7 @@ class InstrumentsController < ApplicationController
 
     redirect_to profile_path
   end
-    
+
   private
 
   def instrument_params
@@ -38,6 +46,6 @@ class InstrumentsController < ApplicationController
       :price,
       :description,
       :photo
-    )   
+    )
   end
 end

@@ -1,0 +1,24 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+      <h1>Voici mon profil!</h1>
+      <% @instruments.each do |instrument| %>
+
+      <h2> <%= current_user.first_name %> <%= current_user.last_name %> </h2>
+      <%= cl_image_tag @current_user.avatar, height: 50, width: 50, crop: :fill %>
+      <p> <%= cl_image_tag instrument.photo, height: 400, width: 300, crop: :fill %> </p>
+      <p> <%= instrument.name %> </p>
+
+
+      <% end %>
+    </div>
+
+    <div>
+      <h2>Mes instruments !</h2>
+    </div>
+
+
+
+  </div>
+</div>

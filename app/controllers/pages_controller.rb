@@ -3,6 +3,7 @@ class PagesController < ApplicationController
 
   def home
     @instruments = Instrument::CATEGORIES
+    @last_instruments = Instrument.last(4)
   end
 
   def styleguide

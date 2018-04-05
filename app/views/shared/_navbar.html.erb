@@ -52,6 +52,9 @@
       </div>
     <% else %>
       <!-- Login link (when logged out) -->
+      <%= link_to t(".sign_up", default: "Signup"), '#', "data-toggle" => "modal", "data-target"=>"#modaldevise-sign", class: "navbar-wagon-item navbar-wagon-link" %>
+
+
       <%= link_to t(".sign_in", default: "Login"), '#', "data-toggle" => "modal", "data-target"=>"#modaldevise", class: "navbar-wagon-item navbar-wagon-link text-cta" %>
     <% end %>
   </div>

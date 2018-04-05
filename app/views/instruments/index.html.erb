@@ -33,7 +33,12 @@
       <div class="col-xs-12 col-sm-4 text-center">
 
         <div class="card">
-          <div class="card-image" style="background-image: url('<%=image_path instrument.photo%>')"></div>
+
+          <% if instrument.photo.url.nil?%>
+            <div class="card-image" style="background-image: url('assets/default-instrument.png')"></div>
+          <% else %>            
+            <div class="card-image" style="background-image: url('<%=image_path instrument.photo%>')"></div>
+          <% end %>
 
           <div class="card-description">
             <!-- User name -->

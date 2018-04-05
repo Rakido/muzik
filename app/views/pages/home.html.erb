@@ -4,7 +4,7 @@
     <h3 style="margin-top: 3vh;">Louez ou proposez des instruments dans votre ville</h3>
     <form class="form-inline" style="margin-top: 3vh;" action="<%=instruments_path%>">
     <div class="form-group mb-2">
-
+    
     <%= select("instrument", "category", Instrument::CATEGORIES, {include_blank: 'Choisissez un instrument'}) %>
 
     </div>

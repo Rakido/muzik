@@ -1,49 +1,47 @@
-<div class="container">
-
-  <div
-    id="map"
-    style="width: 100%;
-    height: 600px;
-    margin-top: 10vh;
-    margin-bottom: -10vh;"
-    data-markers="<%= @markers.to_json %>"
-  ></div>
-
-  <div class="row">
-    <div class="col-xs-12 results">
-      <div class="underline"></div>
-
-      <% if @category == "" && @city == "" %>
-      <h1>Tous nos instruments</h1>
-      <% elsif @category == "" %>
-      <h1>Voici les résultats de recherche à <%= @city %></h1>
-      <% elsif @city == "" %>
-      <h1>Voici les <%= @category %>s, choisissez une ville </h1>
-      <% else %>
-      <h1>Voici les <%= @category %>s à <%= @city %></h1>
-      <% end %>
-
-      <div class="underline"></div>
+<div class="content">
+  <div class="cards-container">
+    <div class="row">
+      <div class="col-xs-12" style="margin-top: 5vh;">
+        <% if @category == "" && @city == "" %>
+        <h1>Tous nos instruments</h1>
+        <% elsif @category == "" %>
+        <h1>Voici les résultats de recherche à <%= @city %></h1>
+        <% elsif @city == "" %>
+        <h1>Voici les <%= @category %>s, choisissez une ville </h1>
+        <% else %>
+        <h1>Voici les <%= @category %>s à <%= @city %></h1>
+        <% end %>
+      <div class="underline" style="margin-bottom: 3vh;"></div>
     </div>
-    <% @instruments.each do |instrument| %>
-      <div class="col-xs-12 col-sm-3 text-center">
-        <div class="card">
-          <div class="card-image">
-            <% if instrument.photo.url.nil?%>
-              <%= image_tag("default-instrument.png", class: "instrument-image")  %>
-            <% else %>
-              <%= cl_image_tag instrument.photo, crop: :fill, class: "instrument-image" %>
-            <% end %>
-          </div>
-          <div class="card-description">
 
+    <div class="filter">
+      <div class="col-xs-6 col-md-3 form-input">
+        Du moins cher au plus cher
+      </div> 
+      <div class="col-xs-6 col-md-3 form-input">
+        Du plus cher au moins cher
+      </div>  
+      <div class="col-xs-6 col-md-3 form-input">
+        Filtrer par villes
+      </div>
+      <div class="col-xs-6 col-md-3 form-input">
+        Filtrer par un autre truc
+      </div>      
+    </div>
+    
+    <% @instruments.each do |instrument| %>
+      <div class="col-xs-12 col-sm-4 text-center">
+
+        <div class="card">
+          <div class="card-image" style="background-image: url('<%=image_path instrument.photo%>')"></div>
+
+          <div class="card-description">
             <!-- User name -->
             <h6 class="card-user-name"><%= instrument.user.first_name %> <%= instrument.user.last_name %></h6>
             <!-- Name of annonce -->
             <h5 class="card-user-instrument"><%= link_to instrument.name, instrument_path(instrument) %></h5>
             <!-- Résumé de l'annonce peut-être mettre une limite de caractère -->
             <p class="card-resume"><%= instrument.description %></p>
-
           </div>
 
           <div class="card-footer">
@@ -51,17 +49,16 @@
               <div class="col-sm-2 card-price">
                   <!-- Price de l'annonce -->
                   <%= link_to instrument.price, instrument_path(instrument)%>€/jour
-
               </div>
-                </div>
-              </div>
+            </div>
+          </div>
 
             <!-- Image de l'utilisateur -->
-            <% if instrument.user.avatar.nil? %>
-                  <%= image_tag('logo.png') %>
-                <% else %>
-                  <%= cl_image_tag instrument.user.avatar, crop: :fill, class: "card-user" %>
-                <% end %>
+          <% if instrument.user.avatar.nil? %>
+            <%= image_tag('logo.png') %>
+              <% else %>
+                <%= cl_image_tag instrument.user.avatar, crop: :fill, class: "card-user" %>
+              <% end %>
              <!-- <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay"> -->
              <%= link_to '', instrument_path(instrument), class: "card-link"  %>
             <!-- <a class="card-link" href="#" ></a> -->
@@ -69,7 +66,10 @@
         </div>
       <% end %>
     </div>
-</div>
+  </div>
+
+   <div id="map" data-markers="<%= @markers.to_json %>"></div>
+  </div>
 
 
 

@@ -1,0 +1,46 @@
+<div class="container">
+
+  <div class="row results">
+    <div class="col-xs-12 col-md-7 ">
+      <div class="col-md-1 user-avatar">
+      <img src="https://www.trickscity.com/wp-content/uploads/2017/12/best-whatsapp-dp.jpg" alt="" width="48px" class="avatar-pics">
+      </div>
+      <div class="col-md-4 user-info" style="margin-left: 20px ">
+        <h4>HARDAY LE TURC</h4>
+        <p>Inscrit le 12.08.2018</p>
+      </div>
+
+      <div class="underline" style="margin-top: 80px;"></div>
+      <div class="col-xs-10 primary-text">
+        <h2 class="primary-text"> Gibson </h2>
+      </div>
+      <div class="col-xs-2 text-right">
+        <h2 class="primary-text light"><%= @instrument.price %> €</h2>
+      </div>
+      <div class="underline" style="margin-top: 80px;"></div>
+
+      <%= simple_form_for [@instrument, @reservation] do |f| %>
+        <%= f.input :start_date %>
+        <%= f.input :end_date %>
+        <%= f.input :message %>
+        <%= f.submit 'demande de résa', class: 'btn show-cta cta-input' %>
+      <% end %>
+
+
+      <div class="col-md-12 description">
+        <p> tapez ici</p>
+      </div>
+
+    </div>
+
+    <div class="col-xs-12 col-md-4 col-md-offset-1">
+
+      <%= link_to "envoyez la demande", instrument_reservations_path, method: 'post', class: "btn show-cta cta-input" %>
+
+    </div>
+  </div>
+</div>
+
+
+
+

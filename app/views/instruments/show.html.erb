@@ -19,22 +19,7 @@
         <h2 class="primary-text light"><%= @instrument.price %> €</h2>
       </div>
       <div class="underline" style="margin-top: 80px;"></div>
-      
-      <div class="col-xs-6 col-md-3 input">
-        <p class="text-input"><%= @instrument.category %></p>
-      </div>
 
-      <div class="col-xs-6 col-md-5 input">
-        <p class="text-input"><%= @instrument.city %></p>
-      </div>
-
-      <div class="col-xs-6 col-md-2 input">
-        <p class="text-input">12 Juin</p>
-      </div>
-
-      <div class="col-xs-6 col-md-2 input">
-        <p class="text-input">15 Juin</p>
-      </div>
 
       <div class="col-md-12 description">
         <p> <%= @instrument.description %></p>
@@ -44,9 +29,12 @@
 
     <div class="col-xs-12 col-md-4 col-md-offset-1">
       <%= cl_image_tag @instrument.photo, height: 420, width: 320, crop: :fill, class: 'show-image' %>
-      <button class="btn show-cta cta-input">Faire une demande</button>
+      <%= link_to "Faire une demande", new_instrument_reservation_path(@instrument), class: "btn show-cta cta-input" %>
+
     </div>
   </div>
 </div>
+
+
 
 

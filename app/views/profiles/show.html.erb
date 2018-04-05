@@ -1,6 +1,16 @@
 <div class="container">
 
   <div class="row results">
+    <h2>Reservations on my instruments</h2>
+   <% @pending_demands.each do |demand| %>
+    <li>
+      <%= demand.user.first_name %> a demandé de louer votre du <%= demand.start_date %> au <%= demand.end_date %> pour la modique somme de <%= demand.total_price %> <%= link_to 'Accepter', accept_demand_path(demand), method: 'patch' %>
+      <%= link_to 'Refuser', refuse_demand_path(demand), method: 'patch' %>
+    </li>
+   <% end %>
+
+
+
     <div class="col-xs-12 col-md-12 ">
       <div class="col-md-1">
           <%= cl_image_tag current_user.avatar, height: 48, width: 48, crop: :fill, class: "avatar-pics" %>
@@ -14,10 +24,10 @@
         <p class="text-right"><%=current_user.phone_number%></p>
       </div>
       <div class="underline" style="margin-top: 80px;"></div>
-      
+
       <div class="instruments" style="margin-top: 24px;"></div>
       <% @instruments.each do |instrument| %>
-      
+
       <div class="col-xs-12 col-sm-3 text-center">
         <div class="card">
           <div class="card-image" style="background-image: url() ">
@@ -53,14 +63,25 @@
       </div>
     <% end %>
   </div>
-</div> 
+</div>
   <div class="row results">
     <div class="col-xs-6">
-      <h2>Mon pognon gagné</h2>
+       <h2>Mon pognon gagné</h2>
+        <% @accepted_demands.each do |demand| %>
+       <li>
+      <%= demand.user.first_name %> a demandé de louer votre du <%= demand.start_date %> au <%= demand.end_date %> pour la modique somme de <%= demand.total_price %> <%= link_to 'Accepter', accept_demand_path(demand), method: 'patch' %>
+      <%= link_to 'Refuser', refuse_demand_path(demand), method: 'patch' %>
+    </li>
+    <% end %>
     </div>
 
     <div class="col-xs-6">
-      <h2>Mon pognon perdu</h2>
+      <h2>Mon pognon perdu </h2>
+      <% @reservations.each do |reservation| %>
+    <li>
+      <p><%= reservation.instrument.name %></p>
+    </li>
+   <% end %>
     </div>
   </div>
 </div>

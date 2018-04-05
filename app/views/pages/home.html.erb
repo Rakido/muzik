@@ -1,59 +1,58 @@
-<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://www.helpmusicians.org.uk/assets/images/hmd_banner_option_1.jpg');">
+<div class="banner" style="background-image: linear-gradient(-19deg, rgba(238,238,238,0.01) 0%, #D43F3F 100%), url('assets/homepage.jpg');">
+
   <div class="banner-content">
     <h1>La müzik à portée de main</h1>
-    <h3 style="margin-top: 3vh;">Louez ou proposez des instruments dans votre ville</h3>
-    <form class="form-inline" style="margin-top: 3vh;" action="<%=instruments_path%>">
-    <div class="form-group mb-2">
-    
-    <%= select("instrument", "category", Instrument::CATEGORIES, {include_blank: 'Choisissez un instrument'}) %>
+    <h3 style="margin-top: 5vh;">Louez ou proposez des instruments dans votre ville</h3>
+    <form class="form-inline" style="margin-top: 6vh;" action="<%=instruments_path%>">
+      <div class="form-group mb-2">
+        <%= select("instrument", "category", Instrument::CATEGORIES, {include_blank: 'Choisissez un instrument'}) %>
+      </div>
+      <div class="form-group mx-sm-3 mb-2">
+        <input type="text" class="form-control form-input text-input" name="city" placeholder="Tapez une ville">
+      </div>
 
-    </div>
-    <div class="form-group mx-sm-3 mb-2">
-      <input type="text" class="form-control form-input text-input" name="city" placeholder="Tapez une ville">
-    </div>
+      <div class="form-group mx-sm-3 mb-2">
+        <input type="text" class="form-control form-input text-input" placeholder="Début">
+      </div>
 
-    <div class="form-group mx-sm-3 mb-2">
-      <input type="text" class="form-control form-input text-input" placeholder="Début">
-    </div>
-
-    <div class="form-group mx-sm-3 mb-2">
-      <input type="text" class="form-control form-input text-input" placeholder="Fin">
-    </div>
-
-    <button type="submit" class="btn btn-primary mb-2 form-input-primary text-input-primary">Rechercher</button>
+      <div class="form-group mx-sm-3 mb-2">
+        <input type="text" class="form-control form-input text-input" placeholder="Fin">
+      </div>
   </form>
+      <button type="submit" class="btn mb-2 cta-home-search" style="margin-top: 5vh;">Rechercher</button>
   </div>
 </div>
 <div class="container">
   <div class="row text-center section-home marged-top elements flex-center">
     <div class="col-md-4">
-      <img src="https://cdn.lyft.com/brochure/drive-for-lyft-tip.f57a8a46.svg" width="100" alt="">
+     
+      <%= image_tag("detail-home-1.png", width: "250", alt: "Edit Entry") %>
       <h2>Trouvez</h2>
-      <hr>
-      <p>Les instruments qui vous intéressent, près de chez vous.</p>
+      <div class="underline" style="margin-bottom: 2vh;"></div>
+      <p class="home-text">Les instruments qui vous intéressent, près de chez vous.</p>
     </div>
 
     <div class="col-md-4">
-      <img src="https://cdn.lyft.com/brochure/drive-for-lyft-tip.f57a8a46.svg" width="100" alt="">
+      <%= image_tag("detail-home-1.png", width: "250", alt: "Edit Entry") %>
       <h2>Louez</h2>
-      <hr>
-      <p>Louez votre matériel en deux clics. Un jour, une semaine, un mois, à vous de choisir !</p>
+      <div class="underline" style="margin-bottom: 2vh;"></div>
+      <p class="home-text">Louez votre matériel en deux clics. Un jour, une semaine, un mois, à vous de choisir !</p>
     </div>
 
     <div class="col-md-4">
-      <img src="https://cdn.lyft.com/brochure/drive-for-lyft-tip.f57a8a46.svg" width="100" alt="">
+      <%= image_tag("detail-home-1.png", width: "250", alt: "Edit Entry") %>
       <h2>Rencontrez</h2>
-      <hr>
-      <p> Des musiciens, heureux de faire partager leur passion.</p>
+      <div class="underline" style="margin-bottom: 2vh;"></div>
+      <p class="home-text">Des musiciens, heureux de faire partager leur passion.</p>
     </div>
   </div>
 
 </div>
   <div class="wrapper-home text-center">
     <div class="elements">
-    <h2 style="color:white;">Déposez vite une annonce</h2>
-    <h4 style="color:white;">Rejoignez une communauté de plusieurs milliers de musiciens</h4>
-    <%= link_to t(".sign_up", default: "Inscrivez-vous"), '#', "data-toggle" => "modal", "data-target"=>"#modaldevise-sign", class:'btn show-cta cta-input'%>
+    <h2 class="home-text-shadow" style="margin-bottom: 3vh;">Déposez vite une annonce</h2>
+    <h4 class="home-text-shadow" style="margin-bottom: 3vh;">Rejoignez une communauté de plusieurs milliers de musiciens</h4>
+    <%= link_to t(".sign_up", default: "Inscrivez-vous"), '#', "data-toggle" => "modal", "data-target"=>"#modaldevise-sign", class:'btn cta-home'%>
   </div>
   </div>
  <div class="container">
@@ -104,8 +103,25 @@
           </div>
         </div>
       <% end %>
-
+    </div>
   </div>
-</div>
+  <div class="wrapper-home text-center">
+    <div class="elements">
+      <div class="col-md-4">
+        <h2 class="home-text-shadow">Anatroll Gonon</h2>
+        <h4 class="home-text-shadow">Un profesionnel à votre écoute</h4>
+      </div>
+
+      <div class="col-md-4">
+        <h2 class="home-text-shadow">Harday Taskar</h2>
+        <h4 class="home-text-shadow">Un profesionnel à votre écoute</h4>
+      </div>
+
+      <div class="col-md-4">
+        <h2 class="home-text-shadow">JJ Bernardo</h2>
+        <h4 class="home-text-shadow">Un profesionnel à votre écoute</h4>
+      </div>
+    </div>
+  </div>
 </div>
 

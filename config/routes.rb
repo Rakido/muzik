@@ -1,14 +1,13 @@
 Rails.application.routes.draw do
   root to: 'pages#home'
-  devise_for :users,
-      controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+  devise_for :users
 
   resources :instruments, only: [:index, :show, :new, :create] do
     # as musician
     resources :reservations, only: [:new, :create]
   end
 
-  resource :profile, only: [:show]
+  resource :profile, only: [:show, :edit, :update]
 
   # as owner
   resources :demands, only: [] do

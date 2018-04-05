@@ -4,7 +4,7 @@
     <h3 style="margin-top: 3vh;">Louez ou proposez des instruments dans votre ville</h3>
     <form class="form-inline" style="margin-top: 3vh;" action="<%=instruments_path%>">
     <div class="form-group mb-2">
-
+    
     <%= select("instrument", "category", Instrument::CATEGORIES, {include_blank: 'Choisissez un instrument'}) %>
 
     </div>
@@ -47,5 +47,53 @@
       <p> Des musiciens, heureux de faire partager leur passion.</p>
     </div>
   </div>
+  <div class="section-home">
+    <div class="col-md-12">
+      <h2>Les derniers instruments postés</h2>
+    </div>
+
+    <%  @last_instruments.each do |instrument| %>
+      <div class="col-xs-12 col-sm-3 text-center">
+        <div class="card">
+           <% if instrument.photo.url.nil?%>
+            <div class="card-image" style="background-image: url('assets/default-instrument.png')"></div>
+          <% else %>            
+            <div class="card-image" style="background-image: url('<%=image_path instrument.photo%>')"></div>
+          <% end %>
+          <div class="card-description">
+
+            <!-- User name -->
+            <h6 class="card-user-name"><%= instrument.user.first_name %> <%= instrument.user.last_name %></h6>
+            <!-- Name of annonce -->
+            <h5 class="card-user-instrument"><%= link_to instrument.name, instrument_path(instrument) %></h5>
+            <!-- Résumé de l'annonce peut-être mettre une limite de caractère -->
+            <p class="card-resume"><%= instrument.description %></p>
+
+          </div>
+
+          <div class="card-footer">
+            <div class="row">
+              <div class="col-sm-2 card-price">
+                  <!-- Price de l'annonce -->
+                  <%= link_to instrument.price, instrument_path(instrument)%>€/jour
+
+              </div>
+                </div>
+              </div>
+
+            <!-- Image de l'utilisateur -->
+            <% if instrument.user.avatar.nil? %>
+                  <%= image_tag('logo.png') %>
+                <% else %>
+                  <%= cl_image_tag instrument.user.avatar, crop: :fill, class: "card-user" %>
+                <% end %>
+             <!-- <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay"> -->
+             <%= link_to '', instrument_path(instrument), class: "card-link"  %>
+            <!-- <a class="card-link" href="#" ></a> -->
+          </div>
+        </div>
+      <% end %>
+
+  </div>
 </div>
-<!-- <div class="section-home color-slide"></div> -->
+

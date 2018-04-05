@@ -12,8 +12,19 @@
   <body>
     <%= render 'shared/navbar'%>
     <%= render 'shared/flashes' %>
+    
+    <div id="modaldevise" class="modal fade">
+      <%= render 'devise/shared/new' %>
+    </div>
 
+    <div id="modaldevise-sign" class="modal fade">
+      <%= render 'devise/registrations/new' %>
+    </div>
+    
     <%= yield %>
+    <%= render 'shared/footer'%>
+
+
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
 

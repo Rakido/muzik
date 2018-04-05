@@ -1,13 +1,14 @@
 <div class="container">
 
-  <div class="row results">
+  <div class="row results full-height">
     <div class="col-xs-12 col-md-7 ">
       <div class="col-md-1 user-avatar">
-      <img src="https://www.trickscity.com/wp-content/uploads/2017/12/best-whatsapp-dp.jpg" alt="" width="48px" class="avatar-pics">
+        <%= cl_image_tag @instrument.user.avatar, height: 48, crop: :fill, class: 'avatar-pics' %>
       </div>
       <div class="col-md-4 user-info" style="margin-left: 20px ">
         <h4><%=@instrument.user.first_name %> <%= @instrument.user.last_name %></h4>
-        <p>Inscrit le 12.08.2018</p>
+        <!-- <p>Inscrit le 12.08.2018</p> -->
+        Inscrit le <%= @instrument.user.created_at.strftime('%m/%d/%Y') %>
       </div>
 
       <div class="underline" style="margin-top: 80px;"></div>

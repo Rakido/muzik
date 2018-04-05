@@ -7,17 +7,17 @@
   color: $gray;
   box-shadow: 0 2px 24px 0 rgba(206,221,251,0.70);
   margin-bottom: 30px;
+
 }
 
 .card-image {
-  height: 175px;
-  width: 262px;
-  //background-position center
+  width:241px;
+  height:174px;
+  background-size: cover !important;
+  background-position: center !important;
 }
 
 .instrument-image {
- height: 175px;
-  width: 262px;
 }
 
 .card-user {
@@ -71,7 +71,7 @@
 }
 
 .card-description {
-  position: absolute;
+
   padding: 0 24px;
 }
 

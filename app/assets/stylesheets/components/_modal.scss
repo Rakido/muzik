@@ -1,0 +1,25 @@
+.modal-content {
+  width: 370px;
+  height: 410px;
+  padding: 24px;
+}
+
+
+.sign-logo {
+}
+
+
+.sign-subtitle {
+}
+
+.input-modal {
+  width: 100%;
+  height:4rem;
+  background: $white;
+  box-shadow: inset 0 -1px 3px 0 rgba(0,0,0,0.10);
+  border-radius: $border-radius-base;
+  margin-left:6px;
+  margin-right:6px;
+  margin-bottom: 12px;
+  padding: 12px;
+}

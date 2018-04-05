@@ -17,7 +17,6 @@ gem 'devise'
 gem 'faker'
 gem 'cloudinary'
 gem 'carrierwave', '~> 1.2'
-gem 'omniauth-facebook'
 
 ## Gems custom
 gem 'autoprefixer-rails'
@@ -27,6 +26,7 @@ gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+gem 'jquery'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

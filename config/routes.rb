@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   devise_for :users
 
-  resources :instruments, only: [:index, :show, :new, :create] do
+  resources :instruments, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
     # as musician
     resources :reservations, only: [:new, :create]
   end

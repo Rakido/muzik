@@ -4,6 +4,8 @@ Instrument.destroy_all
 User.destroy_all
 
 puts 'Creating static users with their instruments / reservations...'
+
+# seed user
 haydar = User.create(
   email: "tknhaydar@gmail.com",
   password: "123456",
@@ -22,19 +24,82 @@ anatole = User.create(
   avatar: File.open(Rails.root.join("db/fixtures/users/avatar_anatole.jpg"))
   )
 
+jj = User.create(
+  email: "jjulien@gkombolo.ooo",
+  password: "123456",
+  first_name: "JJ",
+  last_name: "Bernard ",
+  phone_number: "0745678923",
+  avatar: File.open(Rails.root.join("db/fixtures/users/avatar_jj.jpg")),
+  )
+
+simon = User.create(
+  email: "simon@gmail.com",
+  password: "123456",
+  first_name: "Simon",
+  last_name: "Lefebvre",
+  phone_number: "0643567812",
+  avatar: File.open(Rails.root.join("db/fixtures/users/avatar_simon.jpg"))
+  )
+
+
+# seed isntrument
+
 guitare = Instrument.create(
-  user: haydar,
-  city: "nantes",
+  user: anatole,
+  city: "Vannes",
   category: "Guitare",
-  name: "Guitare Gibson sg standar",
-  description: "Superbe Gibson, peu utilisée. Son magique.",
-  photo: File.open(Rails.root.join("db/fixtures/instruments/haydar_instrument.jpg")),
-  price: 5,
+  name: "Fender Stratocaster US American Deluxe 1998",
+  description: "Je loue une Stratocaster American Deluxe de 1998.
+  Les Noiseless d'origine ont été remplacés par des Lace Sensor Blue, Gold et Red, les mêmes que sur la Stratocaster Eric Clapton signature.
+  Super son défini, clean, claquant mais aussi rond et sans bruits de fond.
+  Corps en frêne, manche érable touche maple, plutôt fin. Les frettes sont en très bon état.
+  Juste et bien réglée, la guitare tient parfaitement l'accord grâce à ses mécaniques auto-bloquante.",
+  photo: File.open(Rails.root.join("db/fixtures/instruments/fender_guitare.jpg")),
+  price: 7,
   available: true,
   )
 
+violon = Instrument.create(
+  user: simon,
+  city: "Loudéac",
+  category: "Violon",
+  name: "Fender Stratocaster US American Deluxe 1998",
+  description: "Loue violon facile et agréable à jouer pour débuter!!!
+  Très bon état. Ce violon n’est pas ancien.
+  Les méthodes de lutherie récentes lui procurent une facilité de jeux avec un son clair et net",
+  photo: File.open(Rails.root.join("db/fixtures/instruments/violon_etude.jpg")),
+  price: 3,
+  available: true,
+  )
+
+batterie = Instrument.create(
+  user: haydar,
+  city: "Nantes",
+  category: "Batterie",
+  name: "Batterie Yamaha - Livraison Disponible ",
+  description: "Batterie Yamaha état neuf - Studio GIGMAKER Fusion 20'' Black Glitter + accessoires. Très peu servi, montée une seule fois.",
+  photo: File.open(Rails.root.join("db/fixtures/instruments/batterie_yamaha.jpg")),
+  price: 14,
+  available: true,
+  )
+
+cor_de_chasse = Instrument.create(
+  user: jj,
+  city: "Rennes",
+  category: "Cor De Chasse",
+  name: "Cor De Chasse",
+  description: "Ce cor de chasse est idéale pour des chasses ponctuelles.",
+  photo: File.open(Rails.root.join("db/fixtures/instruments/cor_de_chasse.jpg")),
+  price: 2,
+  available: true,
+  )
+
+
+# seed reservation
+
 reservation_1 = Reservation.create(
-  user: anatole,
+  user: haydar,
   instrument: guitare,
   message: "Bonjour, j'aimerais louer votre guitare gibson dans le cadre d'un mariage.",
   start_date: "2018-04-05",
@@ -43,31 +108,5 @@ reservation_1 = Reservation.create(
   status: "pending",
   )
 
-
-puts 'Creating fake users and instruments...'
-
-10.times do
-  user = User.create!(
-    email: Faker::Internet.email,
-    password: ['1234567', "12345678", "123456789"].sample,
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    phone_number: Faker::PhoneNumber.phone_number,
-    avatar: File.open(Rails.root.join("db/fixtures/users/hendrix_avatar.jpg"))
-    )
-
-  category = Instrument::CATEGORIES.sample
-
-  Instrument.create!(
-    user: user,
-    city: Faker::Address.city,
-    category: category,
-    name: Faker::Lorem.sentence[0, 50],
-    description: Faker::Lorem.sentence,
-    price: (5..100).to_a.sample,
-    available: true,
-    photo: File.open(Rails.root.join("db/fixtures/instruments/#{category.parameterize}.jpg"))
-  )
-end
 
 puts 'Finished!'

@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :reservations, only: [:new, :create]
   end
 
-  resource :profile, only: [:show]
+  resource :profile, only: [:show, :edit, :update]
 
   # as owner
   resources :demands, only: [] do

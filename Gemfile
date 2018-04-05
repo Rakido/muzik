@@ -17,7 +17,6 @@ gem 'devise'
 gem 'faker'
 gem 'cloudinary'
 gem 'carrierwave', '~> 1.2'
-gem 'omniauth-facebook'
 
 ## Gems custom
 gem 'autoprefixer-rails'

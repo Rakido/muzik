@@ -1,0 +1,43 @@
+<div class="container">
+  <!-- <div style="margin-top: 200px"> -->
+  <div class="row results">
+
+      <%= simple_form_for @profile, url: profile_path do |f| %>
+      <%= f.input :email, label: "Adresse email", placeholder: "jimihendrix@gmail.com"%>
+      <%= f.input :first_name, label: "Prénom", placeholder: "Jimi"%>
+      <%= f.input :last_name, label: "Nom", placeholder: "Hendrix"%>
+      <%= f.input :phone_number, label: "Numéro de téléphone", placeholder: "06 ** ** ** **" %>
+      <%= f.input :avatar, label: "Photo de profil" %>
+      <!-- Preview avatar  -->
+      <div id="preview">
+        <img src="http://saveabandonedbabies.org/wp-content/uploads/2015/08/default-300x169.png" alt>
+
+        <script src="http://code.jquery.com/jquery-3.1.0.min.js"
+        integrity="shaa256-cCueBR6CsyA4/9szpPfrX3s49M9vUU58gtiJj06wt/s="
+        crossorigin="anonymous">
+       </script>
+
+       <script type="text/javascript">
+        function readURL(input){
+         if(input.files && input.files[0]){
+          var reader = new FileReader();
+          reader.onload = function(e){
+           $('#preview img').attr('src', e.target.result);
+          };
+          reader.readAsDataURL(input.files[0]);
+         }
+        }
+        $(document).on('change','input[type="file"]',function(){
+         readURL(this);
+        });
+       </script>
+      </div>
+
+
+      <div>
+      <%= f.submit 'Mise à jour', class: 'btn show-cta cta-input' %>
+      </div>
+
+      <% end %>
+  </div>
+</div>

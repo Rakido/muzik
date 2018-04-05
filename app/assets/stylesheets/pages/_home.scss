@@ -1,7 +1,7 @@
 // Specific CSS for your home-page
 
 .section-home {
-  height:100vh;
+  height:70vh;
 }
 
 .color-slide {
@@ -20,4 +20,23 @@
   font-family: MaisonNeue-Bold;
   font-size: 1.3rem;
   letter-spacing: 0.5px;
+}
+
+.wrapper-home {
+  background: $red;
+  height: 50vh;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10vh;
+}
+
+.flex-center  {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.margin-bottom {
+  margin-bottom: 10vh;
 }

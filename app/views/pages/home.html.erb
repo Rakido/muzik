@@ -25,7 +25,7 @@
   </div>
 </div>
 <div class="container">
-  <div class="row text-center section-home marged-top" style="margin-top: 10vh;">
+  <div class="row text-center section-home marged-top elements flex-center">
     <div class="col-md-4">
       <img src="https://cdn.lyft.com/brochure/drive-for-lyft-tip.f57a8a46.svg" width="100" alt="">
       <h2>Trouvez</h2>
@@ -47,9 +47,20 @@
       <p> Des musiciens, heureux de faire partager leur passion.</p>
     </div>
   </div>
+
+</div>
+  <div class="wrapper-home text-center">
+    <div class="elements">
+    <h2 style="color:white;">Déposez vite une annonce</h2>
+    <h4 style="color:white;">Rejoignez une communauté de plusieurs milliers de musiciens</h4>
+    <%= link_to t(".sign_up", default: "Inscrivez-vous"), '#', "data-toggle" => "modal", "data-target"=>"#modaldevise-sign", class:'btn show-cta cta-input'%>
+  </div>
+  </div>
+ <div class="container">
   <div class="section-home">
     <div class="col-md-12">
       <h2>Les derniers instruments postés</h2>
+      <div class="underline" style="margin-bottom: 3vh;"></div>
     </div>
 
     <%  @last_instruments.each do |instrument| %>
@@ -95,5 +106,6 @@
       <% end %>
 
   </div>
+</div>
 </div>
 

@@ -2,13 +2,12 @@
   <!-- <div style="margin-top: 200px"> -->
   <div class="row results">
 
-      <%= simple_form_for @profile, url: profile_path do |f| %>
-      <%= f.input :email, label: "Adresse email", placeholder: "jimihendrix@gmail.com"%>
-      <%= f.input :first_name, label: "Prénom", placeholder: "Jimi"%>
-      <%= f.input :last_name, label: "Nom", placeholder: "Hendrix"%>
-      <%= f.input :phone_number, label: "Numéro de téléphone", placeholder: "06 ** ** ** **" %>
-      <%= f.input :avatar, label: "Photo de profil" %>
-      <!-- Preview avatar  -->
+      <%= simple_form_for @instrument, url: instrument_path do |f| %>
+      <%= f.input :city, label: "Ville" %>
+      <%= f.input :category, label: 'Catégorie', collection: Instrument::CATEGORIES, as: :select %>
+      <%= f.input :description, label: "Description"%>
+      <%= f.input :photo, label: "Photo" %>
+      <!-- Preview photo  -->
       <div id="preview">
         <img src="http://saveabandonedbabies.org/wp-content/uploads/2015/08/default-300x169.png" alt>
 
@@ -32,12 +31,28 @@
         });
        </script>
       </div>
-
-
+      <%= f.input :price, label: "Prix" %>
       <div>
-      <%= f.submit 'Mise à jour', class: 'btn show-cta cta-input' style: "width: 100px" "height: 100px" %>
+      <%= f.submit 'Mise à jour', class: 'btn show-cta cta-input' %>
       </div>
 
       <% end %>
   </div>
 </div>
+
+
+
+<!-- t.bigint "user_id"
+t.string "city"
+t.string "category"
+t.string "name"
+t.text "description"
+t.string "photo"
+t.integer "price"
+t.boolean "available", default: true
+t.datetime "created_at", null: false
+t.datetime "updated_at", null: false
+t.float "latitude"
+t.float "longitude"
+t.index ["user_id"], name: "index_instruments_on_user_id"
+ -->

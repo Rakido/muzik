@@ -29,17 +29,15 @@
       <% @instruments.each do |instrument| %>
 
       <div class="col-xs-12 col-sm-3 text-center">
-        <div class="card">
-          <div class="card-image" style="background-image: url() ">
-            <% if instrument.photo.url.nil?%>
-              <%= image_tag("default-instrument.png", class: "instrument-image")  %>
-            <% else %>
-              <%= cl_image_tag instrument.photo, crop: :fill, class: "instrument-image" %>
-            <% end %>
-          </div>
+      <div class="card">
 
-          <div class="card-description">
+        <% if instrument.photo.url.nil?%>
+          <div class="card-image" style="background-image: url('assets/default-instrument.png')"></div>
+        <% else %>
+          <div class="card-image" style="background-image: url('<%=image_path instrument.photo%>')"></div>
+        <% end %>
 
+        <div class="card-description">
             <!-- User name -->
             <h6 class="card-user-name"><%= current_user.first_name %> <%= current_user.last_name %></h6>
             <!-- Name of annonce -->
@@ -51,10 +49,13 @@
 
           <div class="card-footer">
             <div class="row">
-              <div class="col-sm-2 card-price">
+              <div class="col-sm-12 card-price">
                   <!-- Price de l'annonce -->
-                  <%= link_to instrument.price, instrument_path(instrument)%>€/jour
-
+                  <%= link_to " Modifier", edit_instrument_path(instrument)%>
+              </div>
+              <div class="col-sm-12 card-price">
+                  <!-- Supprimer de l'annonce -->
+                  <%= link_to 'Supprimer',instrument_path(instrument), method: :delete, data: { confirm: "Vous êtes sur ?" } %>
               </div>
             </div>
           </div>

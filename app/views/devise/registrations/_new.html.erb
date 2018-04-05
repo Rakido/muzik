@@ -1,23 +1,28 @@
-<div class="container">
-  <div class="row">
-    <div class="sign-container results text-center">
-      <%= image_tag("logo",  class: "sign-logo") %>
+<div class="modal-dialog modal-sm">
+  <div class="modal-content text-center">
+    <div class="modal-header">
+      <button class="close" data-dismiss="modal">x</button>
+      <%= image_tag("logo.png",  class: "sign-logo") %>
       <h4 class="sign-subtitle">Rejoignez la communauté</h4>
-
+    </div>
+    <div class="modal-body form-inputs text-left">
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= f.error_notification %>
-
-      <div class="form-inputs text-left">
+      <div class="field form-inputs text-left">
         <%= f.input :email, required: true, autofocus: true, placeholder: 'user@domain.com' %>
         <%= f.input :password, required: true, placeholder: 'Password' %>
         <%= f.input :password_confirmation, required: true, placeholder: 'Repeat your password', hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
       </div>
 
+
       <div class="form-actions">
         <%= f.button :submit, "Sign up", class: "button-cta button-cta-sign" %>
       </div>
       <% end %>
+      <%= render "devise/shared/links" %>
     </div>
   </div>
 </div>
-<%= render "devise/shared/links" %>
+
+
+

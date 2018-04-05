@@ -55,13 +55,11 @@
     <%  @last_instruments.each do |instrument| %>
       <div class="col-xs-12 col-sm-3 text-center">
         <div class="card">
-          <div class="card-image">
-            <% if instrument.photo.url.nil?%>
-              <%= image_tag("default-instrument.png", class: "instrument-image")  %>
-            <% else %>
-              <%= cl_image_tag instrument.photo, crop: :fill, class: "instrument-image" %>
-            <% end %>
-          </div>
+           <% if instrument.photo.url.nil?%>
+            <div class="card-image" style="background-image: url('assets/default-instrument.png')"></div>
+          <% else %>            
+            <div class="card-image" style="background-image: url('<%=image_path instrument.photo%>')"></div>
+          <% end %>
           <div class="card-description">
 
             <!-- User name -->

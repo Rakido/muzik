@@ -5,7 +5,11 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   devise :omniauthable, omniauth_providers: [:facebook]
 
+  # As owner
   has_many :instruments
+  has_many :demands, through: :instruments, source: :reservations
+
+  # As renter
   has_many :reservations, dependent: :destroy
 
   # Cloudinary, avatar upload

@@ -5,8 +5,7 @@
    <% @pending_demands.each do |demand| %>
     <li class="list-unstyled" style="margin-bottom: 8vh;">
       <div class="col-md-1 user-avatar text-center">
-        <%= cl_image_tag demand.user.avatar, height: 48, crop: :fill, class: 'avatar-pics' %>
-        
+        <%= cl_image_tag demand.user.avatar, height: 48, crop: :fill, class: 'avatar-pics' %>  
       </div>
       <div class="col-md-9">
       <h2><%= demand.user.first_name %> veut louer votre <%= demand.instrument.name %></h2>
@@ -36,6 +35,7 @@
       <div class="underline" style="margin-top: 80px;"></div>
 
       <div class="instruments" style="margin-top: 24px;"></div>
+      <h2 style="margin-bottom: 40px;">Mes instruments en location</h2>
       <% @instruments.each do |instrument| %>
 
       <div class="col-xs-12 col-sm-3 text-center">
@@ -59,12 +59,10 @@
 
           <div class="card-footer">
             <div class="row">
-              <div class="col-sm-12 card-price">
-                  <!-- Price de l'annonce -->
+              <div class="col-sm-6 card-price">
                   <%= link_to " Modifier", edit_instrument_path(instrument)%>
               </div>
-              <div class="col-sm-12 card-price">
-                  <!-- Supprimer de l'annonce -->
+              <div class="col-sm-6 card-price">
                   <%= link_to 'Supprimer',instrument_path(instrument), method: :delete, data: { confirm: "Vous êtes sur ?" } %>
               </div>
             </div>
@@ -77,24 +75,35 @@
 </div>
   <div class="row results">
     <div class="col-xs-6">
-       <h2>Mon pognon gagné</h2>
+       <h2 class="text-center">J'ai prété</h2>
+       <div class="underline" style="margin-bottom: 2vh"></div>
         <% @accepted_demands.each do |demand| %>
-       <li>
-      <%= demand.user.first_name %> a demandé de louer votre du <%= demand.start_date %> au <%= demand.end_date %> pour la modique somme de <%= demand.total_price %> <%= link_to 'Accepter', accept_demand_path(demand), method: 'patch' %>
-      <%= link_to 'Refuser', refuse_demand_path(demand), method: 'patch' %>
-    </li>
+          <div class="col-md-2">
+            <%= cl_image_tag demand.user.avatar, height: 48, width: 48, crop: :fill, class: "avatar-pics" %>
+          </div>
+
+          <div class="col-md-10">
+            <h4><%= demand.user.first_name %> a loué votre <%= demand.instrument.name %></h4>
+            <p>Du <%= demand.start_date %> au <%= demand.end_date %> pour <%= demand.total_price %>€</p>
+          </div>
     <% end %>
     </div>
 
-    <div class="col-xs-6">
-      <h2>Mon pognon perdu </h2>
-      <% @reservations.each do |reservation| %>
-    <li>
-      <p><%= reservation.instrument.name %></p>
-    </li>
-   <% end %>
+    <div class="row">
+      <div class="col-xs-6">
+        <h2 class="text-center">J'ai emprunté</h2>
+        <div class="underline" style="margin-bottom: 2vh"></div>
+        <% @reservations.each do |reservation| %>
+          <div class="col-md-2">
+            <%= cl_image_tag reservation.instrument.user.avatar, height: 48, width: 48, crop: :fill, class: "avatar-pics" %>
+          </div>
+
+          <div class="col-md-10">
+            <h4> Vous avez <%= reservation.instrument.name %> à <%= reservation.instrument.user.first_name %></h4>
+            <p>Du <%= reservation.start_date %> au <%= reservation.end_date %> pour <%= reservation.total_price %>€</p>
+          </div>
+          <% end %>
+        </div>
+      </div>
     </div>
-  </div>
 </div>
-
-

@@ -21,14 +21,6 @@
       </div>
       <div class="underline" style="margin-top: 80px;"></div>
 
-
-      <%= simple_form_for [@instrument, @reservation] do |f| %>
-        <%= f.input :start_date %>
-        <%= f.input :end_date %>
-        <%= f.input :message %>
-        <%= f.submit 'Je fonce', class: 'btn show-cta cta-input' %>
-      <% end %>
-
       <div class="col-md-12 description">
         <%= f.input :message, placeholder: "Envoyer un message à l'utilisateur à propos de son instrument."%>
       </div>
@@ -49,18 +41,9 @@
           <%= f.input :end_date %>
         </div>
         <div class="col-xs-12">
-          <%= f.submit 'Envoyer ma réservation', class: 'btn show-cta cta-input' %>
+          <%= f.submit 'Je fonce', class: 'btn show-cta cta-input' %>
         </div>
       <% end %>
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
-
-

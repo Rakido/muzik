@@ -7,16 +7,18 @@
       <div class="form-group mb-2">
         <%= select("instrument", "category", Instrument::CATEGORIES, {include_blank: 'Choisissez un instrument'}) %>
       </div>
+      <!-- ville -->
       <div class="form-group mx-sm-3 mb-2">
         <input type="text" class="form-control form-input text-input" name="city" placeholder="Tapez une ville">
       </div>
-
+      <!-- Date -->
+      <!--   <input type="text" class="form-control form-input text-input" placeholder="Début"> -->
       <div class="form-group mx-sm-3 mb-2">
-        <input type="text" class="form-control form-input text-input" placeholder="Début">
+        <input class="form-control form-input text-input" data-provide='datepicker' placeholder="Début">
       </div>
 
       <div class="form-group mx-sm-3 mb-2">
-        <input type="text" class="form-control form-input text-input" placeholder="Fin">
+        <input class="form-control form-input text-input" data-provide='datepicker' placeholder="Fin">
       </div>
       <br>
       <button type="submit" class="btn mb-2 cta-home-search" style="margin-top: 5vh;">Rechercher</button>

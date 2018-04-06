@@ -11,6 +11,7 @@ gem 'redis'
 
 ##Geocode gem
 gem "geocoder"
+gem 'bootstrap-datepicker-rails'
 
 ## Custom gems
 gem 'devise'

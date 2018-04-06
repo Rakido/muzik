@@ -20,7 +20,15 @@
         <h2 class="primary-text light"><%= @instrument.price %> €</h2>
       </div>
       <div class="underline" style="margin-top: 80px;"></div>
-      
+
+
+      <%= simple_form_for [@instrument, @reservation] do |f| %>
+        <%= f.input :start_date %>
+        <%= f.input :end_date %>
+        <%= f.input :message %>
+        <%= f.submit 'Je fonce', class: 'btn show-cta cta-input' %>
+      <% end %>
+
       <div class="col-md-12 description">
         <%= f.input :message, placeholder: "Envoyer un message à l'utilisateur à propos de son instrument."%>
       </div>

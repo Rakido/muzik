@@ -1,5 +1,5 @@
 .card {
-  height: 370px;
+  height: 380px;
   color: white;
   position: relative;
   border-radius: $border-radius-base;
@@ -9,6 +9,7 @@
   margin-bottom: 30px;
 
 }
+
 
 .card-image {
   width:auto;
@@ -32,6 +33,7 @@
 .card-user-instrument {
   margin-top: -5px !important;
   margin-bottom: 10px;
+  line-height:1.4;
 }
 
 .card-user-name {
@@ -39,7 +41,7 @@
 }
 
 .card-resume {
-  line-height: 1.9;
+  line-height: 1.8;
   border-top: 1px solid $medium-gray;
 }
 

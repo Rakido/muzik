@@ -1,22 +1,24 @@
-// Import Custom fonts
-@font-face {
-  font-family: "Fabrik-Bold";
-  src: url(/public/fonts/Fabrik-Bold.otf) format("truetype");
-}
+// // Import Custom fonts
+// @font-face {
+//   font-family: "Fabrik-Bold";
+//   src: url(/public/fonts/Fabrik-Bold.otf) format("truetype");
+// }
 
-@font-face {
-  font-family: "Fabrik";
-  src: url(/public/fonts/Fabrik.otf) format("truetype");
-}
+// @font-face {
+//   font-family: "Fabrik";
+//   src: url(/public/fonts/Fabrik.otf) format("truetype");
+// }
 
-@font-face {
-  font-family: "MaisonNeue";
-  src: url(/public/fonts/MaisonNeue-Demi.otf) format("truetype");
-}
+// @font-face {
+//   font-family: "MaisonNeue";
+//   src: url(/public/fonts/MaisonNeue-Demi.otf) format("truetype");
+// }
 
+@import url('https://fonts.googleapis.com/css?family=Roboto|Rubik:700');
 // Define fonts for body and headers
-$body-font: "MaisonNeue", "Helvetica", "sans-serif";
-$headers-font: "Fabrik-Bold", "Helvetica", "sans-serif";
+
+$body-font: "Roboto", "Helvetica", "sans-serif";
+$headers-font: "Rubik", "Helvetica", "sans-serif";
 
 
 

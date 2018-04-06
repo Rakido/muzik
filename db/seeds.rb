@@ -84,6 +84,30 @@ batterie = Instrument.create(
   available: true,
   )
 
+guitare_2 =
+Instrument.create(
+  user: haydar,
+  city: "Nantes",
+  category: "Guitare",
+  name: "Guitare électrique Jim Harley",
+  description: "Superbe guitare avec son de folie. Location longue durée acceptée.",
+  photo: File.open(Rails.root.join("db/fixtures/instruments/guitare_2.jpg")),
+  price: 4,
+  available: true,
+  )
+
+guitare_3 =
+Instrument.create(
+  user: haydar,
+  city: "Nantes",
+  category: "Guitare",
+  name: "Guitare électrique Vesper",
+  description: "Je possède cette gratte depuis un moment et j'en suis ravi. Un bon point de départ pour se familiariser avec la musique.",
+  photo: File.open(Rails.root.join("db/fixtures/instruments/guitare_3.jpg")),
+  price: 5,
+  available: true,
+  )
+
 cor_de_chasse = Instrument.create(
   user: jj,
   city: "Rennes",
@@ -94,6 +118,29 @@ cor_de_chasse = Instrument.create(
   price: 2,
   available: true,
   )
+
+piano = Instrument.create(
+  user: jj,
+  city: "Rennes",
+  category: "Piano",
+  name: "Piano Samick SU118SP ",
+  description: "Bonjour,je vous propose mon piano pour vos évèenements festifs. Ne pas hesiter à me contacter pour plus d'informations.",
+  photo: File.open(Rails.root.join("db/fixtures/instruments/piano.jpg")),
+  price: 17,
+  available: true,
+  )
+
+trompette = Instrument.create(
+  user: anatole,
+  city: "VAnnes",
+  category: "Trompette",
+  name: "Trompette à palettes Yamaha YTR-436G",
+  description: "Hello, si vous avez besoin d'une trompette pour vous entrainez, je vous recommande fortement la mienne.",
+  photo: File.open(Rails.root.join("db/fixtures/instruments/trompette.jpg")),
+  price: 5,
+  available: true,
+  )
+
 
 
 # seed reservation

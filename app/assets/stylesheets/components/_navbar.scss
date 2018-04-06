@@ -77,3 +77,13 @@
   border-top: 1px solid #E6E6E6;
 }
 
+
+.notification {
+  display:none;
+  width:30px;
+  height:30px;
+  background:red;
+  position: absolute;
+  top:0;
+  left: 0;
+}

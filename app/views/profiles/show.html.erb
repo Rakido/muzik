@@ -53,7 +53,7 @@
             <!-- Name of annonce -->
             <h5 class="card-user-instrument"><%= instrument.name %></h5>
             <!-- Résumé de l'annonce peut-être mettre une limite de caractère -->
-            <p class="card-resume"><%= instrument.description %></p>
+            <p class="card-resume"><%= truncate(instrument.description, length: 80) %></p>
 
           </div>
 

@@ -77,13 +77,20 @@
   border-top: 1px solid #E6E6E6;
 }
 
-
 .notification {
-  display:none;
-  width:30px;
-  height:30px;
-  background:red;
-  position: absolute;
-  top:0;
-  left: 0;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+
+    position: absolute;
+    top: -5px;
+    right: -8px;
+    border: 2px solid white;
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    font-family: 'Rubik';
+background: #FF8D12;
+box-shadow: 0 3px 3px 0 rgba(0,0,0,0.50);
+
 }

@@ -6,4 +6,6 @@ class Reservation < ApplicationRecord
   validates :end_date, presence: true
   validates :total_price, presence: true
   validates :status, presence: true, inclusion: { in: %w(pending accepted denied) }
+
+  scope :pending, -> { where(status: 'pending') }
 end

@@ -31,7 +31,11 @@
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
-          <div class="notification"></div>
+          <% pending_reservations_count = current_user.demands.pending.count %>
+          <% if pending_reservations_count >= 1 %>
+            <div class="notification text-center"><%= pending_reservations_count %></div>  
+          <% end %>
+        
           <% if current_user.avatar.url.nil?%>
            <%= image_tag("default-user.png", class: "avatar dropdown-toggle", "data-toggle" => "dropdown") %>
           <% else %>

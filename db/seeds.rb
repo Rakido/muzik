@@ -64,7 +64,7 @@ violon = Instrument.create(
   user: simon,
   city: "Loudéac",
   category: "Violon",
-  name: "Fender Stratocaster US American Deluxe 1998",
+  name: "Violon de formation",
   description: "Loue violon facile et agréable à jouer pour débuter!!!
   Très bon état. Ce violon n’est pas ancien.
   Les méthodes de lutherie récentes lui procurent une facilité de jeux avec un son clair et net",

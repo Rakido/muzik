@@ -17,18 +17,18 @@
     <div class="filter">
       <div class="col-xs-6 col-md-3 form-input">
         Du moins cher au plus cher
-      </div> 
+      </div>
       <div class="col-xs-6 col-md-3 form-input">
         Du plus cher au moins cher
-      </div>  
+      </div>
       <div class="col-xs-6 col-md-3 form-input">
         Filtrer par villes
       </div>
       <div class="col-xs-6 col-md-3 form-input">
         Filtrer par un autre truc
-      </div>      
+      </div>
     </div>
-    
+
     <% @instruments.each do |instrument| %>
       <div class="col-xs-12 col-sm-4 text-center">
 
@@ -36,7 +36,7 @@
 
           <% if instrument.photo.url.nil?%>
             <div class="card-image" style="background-image: url('assets/default-instrument.png')"></div>
-          <% else %>            
+          <% else %>
             <div class="card-image" style="background-image: url('<%=image_path instrument.photo%>')"></div>
           <% end %>
 
@@ -46,8 +46,10 @@
             <!-- Name of annonce -->
             <h5 class="card-user-instrument"><%= link_to instrument.name, instrument_path(instrument) %></h5>
             <!-- Résumé de l'annonce peut-être mettre une limite de caractère -->
-            <p class="card-resume"><%= instrument.description %></p>
+            <p class="card-resume"><%= truncate(instrument.description, length: 80) %></p>
           </div>
+
+
 
           <div class="card-footer">
             <div class="row">

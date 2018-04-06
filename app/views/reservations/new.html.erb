@@ -5,11 +5,11 @@
     <div class="col-xs-12 col-md-7 ">
 
       <div class="col-md-1 user-avatar">
-        <%= cl_image_tag @instrument.user.avatar, height: 48, crop: :fill, class: 'avatar-pics' %>
+        <%= cl_image_tag current_user.avatar, height: 48, width: 48, crop: :fill, class: "avatar-pics" %>
       </div>
-      <div class="col-md-4 user-info" style="margin-left: 20px">
-        <h4><%=@instrument.user.first_name %> <%= @instrument.user.last_name %></h4>
-        Inscrit le <%= @instrument.user.created_at.strftime('%m/%d/%Y') %>
+      <div class="col-md-4 user-info" style="margin-left: 20px ">
+        <h4><%=current_user.first_name %> <%= current_user.last_name %></h4>
+        <p><%= current_user.created_at.strftime("%d.%m.%y") %></p>
       </div>
 
       <div class="underline" style="margin-top: 80px;"></div>

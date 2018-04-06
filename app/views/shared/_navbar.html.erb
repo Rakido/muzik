@@ -7,13 +7,18 @@
 
 
   <!-- Central Navigation -->
-  <form class="form-inline" action="<%= instruments_path %>">
-    <%= select("instrument", "category", Instrument::CATEGORIES, {include_blank: 'Choisissez un instrument'}) %>
-    <div class="form-group mx-sm-3 mb-2">
-      <input type="text" class="form-control form-input text-input" name="city" placeholder="Tapez une ville">
-    </div>
-    <button type="submit" class="btn btn-primary mb-2 form-input-primary text-input-primary">Rechercher</button>
-  </form>
+
+  <% if params[:controller] == "pages" && params[:action] == "home" %>
+  
+  <% else %>
+    <form class="form-inline" action="<%= instruments_path %>">
+      <%= select("instrument", "category", Instrument::CATEGORIES, {include_blank: 'Choisissez un instrument'}) %>
+      <div class="form-group mx-sm-3 mb-2">
+        <input type="text" class="form-control form-input text-input" name="city" placeholder="Tapez une ville">
+      </div>
+      <button type="submit" class="btn btn-primary mb-2 form-input-primary text-input-primary">Rechercher</button>
+    </form>
+  <% end %>
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">

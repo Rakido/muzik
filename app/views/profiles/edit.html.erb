@@ -1,15 +1,33 @@
 <div class="container">
-  <!-- <div style="margin-top: 200px"> -->
-  <div class="row results">
 
-      <%= simple_form_for @profile, url: profile_path do |f| %>
-      <%= f.input :email, label: "Adresse email", placeholder: "jimihendrix@gmail.com"%>
-      <%= f.input :first_name, label: "Prénom", placeholder: "Jimi"%>
-      <%= f.input :last_name, label: "Nom", placeholder: "Hendrix"%>
+  <div class="row results" style="height:90vh;">
+    <!-- <h2>Reservations on my instruments</h2> -->
+     <%= simple_form_for @profile, url: profile_path do |f| %>
+
+    <div class="col-xs-12 col-md-12 ">
+
+      <div class="col-md-1">
+          <%= cl_image_tag current_user.avatar, height: 48, width: 48, crop: :fill, class: "avatar-pics" %>
+      </div>
+
+      <div class="col-md-9 user-info" style="margin-left: 20px">
+        <h4 class="primary-text"><%=current_user.first_name %> <%= current_user.last_name %></h4>
+        <p>Inscrit le 12.08.2018</p>
+      </div>
+      
+      <div class="underline" style="margin-top: 80px; margin-bottom: 4vh;"></div>
+    
+      <div class="col-xs-12 col-sm-6 text-center">
+        <%= f.input :email, label: "Adresse email", placeholder: "jimihendrix@gmail.com"%>
+        <%= f.input :first_name, label: "Prénom", placeholder: "Jimi"%>
+        <%= f.input :last_name, label: "Nom", placeholder: "Hendrix"%>
+      </div>
+
+      <div class="col-xs-12 col-sm-6 text-center">
       <%= f.input :phone_number, label: "Numéro de téléphone", placeholder: "06 ** ** ** **" %>
       <%= f.input :avatar, label: "Photo de profil" %>
-      <!-- Preview avatar  -->
-      <div id="preview">
+
+      <div id="preview" style="width:48px; height:48px;">
         <img src="http://saveabandonedbabies.org/wp-content/uploads/2015/08/default-300x169.png" alt>
 
         <script src="http://code.jquery.com/jquery-3.1.0.min.js"
@@ -37,7 +55,13 @@
       <div>
       <%= f.submit 'Mise à jour', class: 'btn show-cta cta-input'%>
       </div>
+      </div>
 
-      <% end %>
+      </div>
+    <% end %>
   </div>
 </div>
+
+
+
+

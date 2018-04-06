@@ -1,11 +1,21 @@
 <div class="container">
 
   <div class="row results">
-    <h2>Reservations on my instruments</h2>
+    <!-- <h2>Reservations on my instruments</h2> -->
    <% @pending_demands.each do |demand| %>
-    <li>
-      <%= demand.user.first_name %> a demandé de louer votre du <%= demand.start_date %> au <%= demand.end_date %> pour la modique somme de <%= demand.total_price %> <%= link_to 'Accepter', accept_demand_path(demand), method: 'patch' %>
-      <%= link_to 'Refuser', refuse_demand_path(demand), method: 'patch' %>
+    <li class="list-unstyled" style="margin-bottom: 8vh;">
+      <div class="col-md-1 user-avatar text-center">
+        <%= cl_image_tag demand.user.avatar, height: 48, crop: :fill, class: 'avatar-pics' %>
+        
+      </div>
+      <div class="col-md-9">
+      <h2><%= demand.user.first_name %> veut louer votre <%= demand.instrument.name %></h2>
+      Du <%= demand.start_date %> au <%= demand.end_date %> à <%= demand.total_price %>€ 
+      </div>
+      <div class="button-container" style="display:flex;">
+      <%= link_to 'Accepter', accept_demand_path(demand), method: 'patch', class: ' show-cta', style: 'width:150px; color:#FFF;'%>
+      <%= link_to 'Refuser', refuse_demand_path(demand), method: 'patch', class: 'primary-text show-cta-outline', style: 'width:150px;' %>
+      </div>
     </li>
    <% end %>
 

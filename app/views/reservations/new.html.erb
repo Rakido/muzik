@@ -1,23 +1,26 @@
-<div class="container">
+<div class="container" style="height:90vh;">
+  <%= simple_form_for [@instrument, @reservation] do |f| %>
 
   <div class="row results">
     <div class="col-xs-12 col-md-7 ">
+
       <div class="col-md-1 user-avatar">
-      <img src="https://www.trickscity.com/wp-content/uploads/2017/12/best-whatsapp-dp.jpg" alt="" width="48px" class="avatar-pics">
+        <%= cl_image_tag current_user.avatar, height: 48, width: 48, crop: :fill, class: "avatar-pics" %>
       </div>
       <div class="col-md-4 user-info" style="margin-left: 20px ">
-        <h4>HARDAY LE TURC</h4>
-        <p>Inscrit le 12.08.2018</p>
+        <h4><%=current_user.first_name %> <%= current_user.last_name %></h4>
+        <p><%= current_user.created_at.strftime("%d.%m.%y") %></p>
       </div>
 
       <div class="underline" style="margin-top: 80px;"></div>
       <div class="col-xs-10 primary-text">
-        <h2 class="primary-text"> Gibson </h2>
+        <h2 class="primary-text"><%= @instrument.name %></h2>
       </div>
       <div class="col-xs-2 text-right">
         <h2 class="primary-text light"><%= @instrument.price %> €</h2>
       </div>
       <div class="underline" style="margin-top: 80px;"></div>
+
 
       <%= simple_form_for [@instrument, @reservation] do |f| %>
         <%= f.input :start_date %>
@@ -26,20 +29,37 @@
         <%= f.submit 'Je fonce', class: 'btn show-cta cta-input' %>
       <% end %>
 
-
       <div class="col-md-12 description">
-        <p> tapez ici</p>
+        <%= f.input :message, placeholder: "Envoyer un message à l'utilisateur à propos de son instrument."%>
       </div>
-
     </div>
 
     <div class="col-xs-12 col-md-4 col-md-offset-1">
+        <div class="col-xs-12">
+          <div class="form-control form-input text-input" style="padding-top: 12px; margin-bottom:12px;"><%= @instrument.name %></div>
+        </div>
+        <div class="col-xs-12">
+          <div class="form-control form-input text-input" style="padding-top: 12px; margin-bottom:12px;"><%= @instrument.category %></div>
+        </div>
 
-      <%= link_to "envoyez la demande", instrument_reservations_path, method: 'post', class: "btn show-cta cta-input" %>
-
+        <div class="col-xs-6">
+          <%= f.input :start_date %>
+        </div>
+        <div class="col-xs-6">
+          <%= f.input :end_date %>
+        </div>
+        <div class="col-xs-12">
+          <%= f.submit 'Envoyer ma réservation', class: 'btn show-cta cta-input' %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
+
+
+
+
+
 
 
 

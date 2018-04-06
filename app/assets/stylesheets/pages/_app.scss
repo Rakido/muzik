@@ -14,6 +14,7 @@ a:hover {
 
 h1,h2,h3,h4,h5,h6 {
   color:$gray;
+  font-weight:700;
 }
 
 .marged-top {
@@ -41,7 +42,8 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .light {
-  font-family: "Fabrik";
+  font-family: "Rubik";
+  font-weight:400;
 }
 
 .picto-input {

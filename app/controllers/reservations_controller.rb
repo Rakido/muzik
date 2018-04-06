@@ -7,7 +7,7 @@ class ReservationsController < ApplicationController
   end
 
   def create
-    @reservation = Reservation.new(reservation_params)
+    @reservation = Reservation.new(reservation_params_with_parsed_dates)
 
     @instrument             = Instrument.find(params[:instrument_id])
     @reservation.instrument = @instrument
@@ -30,6 +30,21 @@ class ReservationsController < ApplicationController
   end
 
   private
+
+  def reservation_params_with_parsed_dates
+    params                             = reservation_params
+    start_date_string = params.delete(:start_date)
+    end_date_string   = params.delete(:end_date)
+    
+    start_date = Date.strptime(start_date_string, "%m/%d/%Y")
+    end_date   = Date.strptime(end_date_string, "%m/%d/%Y")
+
+
+    params[:start_date] = start_date
+    params[:end_date]   = end_date
+
+    return params
+  end
 
   def reservation_params
     params.require(:reservation).permit(:message, :start_date, :end_date)

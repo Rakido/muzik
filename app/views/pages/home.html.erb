@@ -18,14 +18,17 @@
       <div class="form-group mx-sm-3 mb-2">
         <input type="text" class="form-control form-input text-input" placeholder="Fin">
       </div>
-  </form>
+      <br>
       <button type="submit" class="btn mb-2 cta-home-search" style="margin-top: 5vh;">Rechercher</button>
+  </form>
+
   </div>
+
 </div>
 <div class="container">
   <div class="row text-center section-home marged-top elements flex-center">
     <div class="col-md-4">
-     
+
       <%= image_tag("detail-home-1.png", width: "250", alt: "Edit Entry") %>
       <h2>Trouvez</h2>
       <div class="underline" style="margin-bottom: 2vh;"></div>
@@ -67,7 +70,7 @@
         <div class="card">
            <% if instrument.photo.url.nil?%>
             <div class="card-image" style="background-image: url('assets/default-instrument.png')"></div>
-          <% else %>            
+          <% else %>
             <div class="card-image" style="background-image: url('<%=image_path instrument.photo%>')"></div>
           <% end %>
           <div class="card-description">

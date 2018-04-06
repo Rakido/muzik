@@ -6,7 +6,7 @@ class Instrument < ApplicationRecord
 
   validates :city, presence: true
   validates :category, presence: true, inclusion: { in: CATEGORIES }
-  validates :name, presence: true, length: { maximum: 50 }
+  validates :name, presence: true, length: { maximum: 60 }
   validates :description, presence: true, length: { maximum: 600 }
   validates :price, presence: true
 

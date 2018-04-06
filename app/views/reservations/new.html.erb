@@ -3,11 +3,11 @@
   <div class="row results">
     <div class="col-xs-12 col-md-7 ">
       <div class="col-md-1 user-avatar">
-      <img src="https://www.trickscity.com/wp-content/uploads/2017/12/best-whatsapp-dp.jpg" alt="" width="48px" class="avatar-pics">
+      <%= cl_image_tag current_user.avatar, height: 48, width: 48, crop: :fill, class: "avatar-pics" %>
       </div>
       <div class="col-md-4 user-info" style="margin-left: 20px ">
-        <h4>HARDAY LE TURC</h4>
-        <p>Inscrit le 12.08.2018</p>
+        <h4><%=current_user.first_name %> <%= current_user.last_name %></h4>
+        <p><%= current_user.created_at.strftime("%d.%m.%y") %></p>
       </div>
 
       <div class="underline" style="margin-top: 80px;"></div>

@@ -46,14 +46,13 @@
         <% else %>
           <div class="card-image" style="background-image: url('<%=image_path instrument.photo%>')"></div>
         <% end %>
-
         <div class="card-description">
             <!-- User name -->
             <h6 class="card-user-name"><%= current_user.first_name %> <%= current_user.last_name %></h6>
             <!-- Name of annonce -->
             <h5 class="card-user-instrument"><%= instrument.name %></h5>
             <!-- Résumé de l'annonce peut-être mettre une limite de caractère -->
-            <p class="card-resume"><%= instrument.description %></p>
+            <p class="card-resume"><%= truncate(instrument.description, length: 80) %></p>
 
           </div>
 
